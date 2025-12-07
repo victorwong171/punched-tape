@@ -32,7 +32,7 @@ func TestNewTicketBuilder(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			builder := NewTicketBuilder(tt.uid, tt.orderNum, tt.step)
+			builder := NewTicketBuilder(tt.uid, tt.orderNum, tt.step, tt.name)
 			if tt.expectNil && builder != nil {
 				t.Errorf("NewTicketBuilder() expected nil, got %v", builder)
 			}
@@ -44,7 +44,7 @@ func TestNewTicketBuilder(t *testing.T) {
 }
 
 func TestTicketBuilder_SetStatus(t *testing.T) {
-	builder := NewTicketBuilder("user123", "TICKET-001", "approval")
+	builder := NewTicketBuilder("user123", "TICKET-001", "approval", "test")
 
 	tests := []struct {
 		name     string
@@ -87,7 +87,7 @@ func TestTicketBuilder_SetStatus(t *testing.T) {
 }
 
 func TestTicketBuilder_SetOperator(t *testing.T) {
-	builder := NewTicketBuilder("user123", "TICKET-001", "approval")
+	builder := NewTicketBuilder("user123", "TICKET-001", "approval", "test")
 
 	tests := []struct {
 		name     string
@@ -136,7 +136,7 @@ func TestTicketBuilder_SetOperator(t *testing.T) {
 }
 
 func TestTicketBuilder_AddOperator(t *testing.T) {
-	builder := NewTicketBuilder("user123", "TICKET-001", "approval")
+	builder := NewTicketBuilder("user123", "TICKET-001", "approval", "test")
 
 	// Test initial state
 	if len(builder.option.Operator) != 0 {
@@ -169,7 +169,7 @@ func TestTicketBuilder_AddOperator(t *testing.T) {
 }
 
 func TestTicketBuilder_SetOperatedUser(t *testing.T) {
-	builder := NewTicketBuilder("user123", "TICKET-001", "approval")
+	builder := NewTicketBuilder("user123", "TICKET-001", "approval", "test")
 
 	tests := []struct {
 		name         string
@@ -218,7 +218,7 @@ func TestTicketBuilder_SetOperatedUser(t *testing.T) {
 }
 
 func TestTicketBuilder_AddOperatedUser(t *testing.T) {
-	builder := NewTicketBuilder("user123", "TICKET-001", "approval")
+	builder := NewTicketBuilder("user123", "TICKET-001", "approval", "test")
 
 	// Test initial state
 	if len(builder.option.OperatedUser) != 0 {
@@ -251,7 +251,7 @@ func TestTicketBuilder_AddOperatedUser(t *testing.T) {
 }
 
 func TestTicketBuilder_SetMemo(t *testing.T) {
-	builder := NewTicketBuilder("user123", "TICKET-001", "approval")
+	builder := NewTicketBuilder("user123", "TICKET-001", "approval", "test")
 
 	tests := []struct {
 		name     string
@@ -333,7 +333,7 @@ func TestTicketBuilder_Build(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			builder := NewTicketBuilder(tt.uid, tt.orderNum, tt.step)
+			builder := NewTicketBuilder(tt.uid, tt.orderNum, tt.step, "test")
 			builder.SetStatus(tt.status)
 
 			ticket, err := builder.Build()
@@ -398,7 +398,7 @@ func TestTicketBuilder_BuildOrPanic(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			builder := NewTicketBuilder(tt.uid, tt.orderNum, tt.step)
+			builder := NewTicketBuilder(tt.uid, tt.orderNum, tt.step, "test")
 			builder.SetStatus(tt.status)
 
 			if tt.expectPanic {
@@ -433,7 +433,7 @@ func TestTicketBuilder_BuildOrPanic(t *testing.T) {
 }
 
 func TestTicketBuilder_Chaining(t *testing.T) {
-	builder := NewTicketBuilder("user123", "TICKET-001", "approval")
+	builder := NewTicketBuilder("user123", "TICKET-001", "approval", "test")
 
 	// Test method chaining
 	result := builder.
@@ -464,7 +464,7 @@ func TestTicketBuilder_Chaining(t *testing.T) {
 }
 
 func TestTicketBuilder_DefaultValues(t *testing.T) {
-	builder := NewTicketBuilder("user123", "TICKET-001", "approval")
+	builder := NewTicketBuilder("user123", "TICKET-001", "approval", "test")
 
 	// Test default values
 	if builder.option.Status != models.Running {

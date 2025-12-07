@@ -16,6 +16,7 @@ const (
 
 type Ticket struct {
 	OrderNum     string   `json:"order_num"`     // 工单号
+	Name         string   `json:"name"`          // 工单名称
 	Status       string   `json:"status"`        // running/passed/rejected
 	Uid          string   `json:"uid"`           // 工单唯一标识
 	Step         string   `json:"step"`          // 当前步骤
@@ -27,6 +28,10 @@ type Ticket struct {
 // Getter methods for Ticket
 func (t *Ticket) GetOrderNum() string {
 	return utils.TernaryOperator(t == nil, "", t.OrderNum)
+}
+
+func (t *Ticket) GetName() string {
+	return utils.TernaryOperator(t == nil, "", t.Name)
 }
 
 func (t *Ticket) GetStatus() string {
@@ -54,6 +59,12 @@ func (t *Ticket) GetMemo() string {
 }
 
 // Setter methods for Ticket
+func (t *Ticket) SetName(name string) {
+	if t != nil {
+		t.Name = name
+	}
+}
+
 func (t *Ticket) SetOrderNum(orderNum string) {
 	if t != nil {
 		t.OrderNum = orderNum
@@ -139,6 +150,7 @@ func (d *Disposal) SetJointSignRate(rate float32) {
 // 发起工单时 可以直接使用模版 或者自定义模版 自定义模版需要
 type TicketTemplate struct {
 	Uid       string        `json:"uid"`        // 模板唯一标识
+	Name      string        `json:"name"`       // 模板名称
 	EndStep   []string      `json:"end_step"`   // 结束节点
 	StartStep string        `json:"start_step"` // 开始节点
 	Config    []*StepConfig `json:"config"`     // 配置
@@ -146,6 +158,10 @@ type TicketTemplate struct {
 }
 
 // Getter methods for TicketTemplate
+func (tt *TicketTemplate) GetName() string {
+	return utils.TernaryOperator(tt == nil, "", tt.Name)
+}
+
 func (tt *TicketTemplate) GetUid() string {
 	return utils.TernaryOperator(tt == nil, "", tt.Uid)
 }
@@ -167,6 +183,12 @@ func (tt *TicketTemplate) GetBuiltin() bool {
 }
 
 // Setter methods for TicketTemplate
+func (tt *TicketTemplate) SetName(name string) {
+	if tt != nil {
+		tt.Name = name
+	}
+}
+
 func (tt *TicketTemplate) SetUid(uid string) {
 	if tt != nil {
 		tt.Uid = uid

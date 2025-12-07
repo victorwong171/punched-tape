@@ -12,17 +12,24 @@ type TicketBuilder struct {
 }
 
 // NewTicketBuilder 创建工单构建器，必填字段在构造函数中指定
-func NewTicketBuilder(uid, orderNum, step string) *TicketBuilder {
+func NewTicketBuilder(uid, orderNum, step, name string) *TicketBuilder {
 	return &TicketBuilder{
 		option: models.Ticket{
 			Uid:          uid,
 			OrderNum:     orderNum,
+			Name:         name,
 			Step:         step,
 			Status:       models.Running, // 设置默认状态
 			Operator:     make([]string, 0),
 			OperatedUser: make([]string, 0),
 		},
 	}
+}
+
+// SetName 设置工单名称
+func (b *TicketBuilder) SetName(name string) *TicketBuilder {
+	b.option.Name = name
+	return b
 }
 
 // SetStatus 设置工单状态
