@@ -1,6 +1,6 @@
 package models
 
-import "github.com/FatWang1/fatwang-go-utils/utils"
+import "github.com/victorwong171/go-utils/utils"
 
 type Ticket struct {
 	OrderNum     string   `json:"order_num"`     // 工单号

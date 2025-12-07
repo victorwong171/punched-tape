@@ -98,6 +98,44 @@ func TestTicket_SetterMethods(t *testing.T) {
 	}
 }
 
+func TestTicket_GetName_SetName(t *testing.T) {
+	// 测试非空指针
+	ticket := &Ticket{
+		Name: "test ticket",
+	}
+
+	// 测试 GetName 方法
+	if ticket.GetName() != "test ticket" {
+		t.Errorf("expected %s, got %s", "test ticket", ticket.GetName())
+	}
+
+	// 测试 SetName 方法
+	ticket.SetName("updated ticket")
+	if ticket.GetName() != "updated ticket" {
+		t.Errorf("expected %s, got %s", "updated ticket", ticket.GetName())
+	}
+}
+
+func TestTicketTemplate_GetName_SetName(t *testing.T) {
+	// 测试非空指针
+	template := &TicketTemplate{
+		Name: "test template",
+	}
+
+	// 测试 GetName 方法
+	if template.GetName() != "test template" {
+		t.Errorf("expected %s, got %s", "test template", template.GetName())
+	}
+
+	// 测试 SetName 方法
+	template.SetName("updated template")
+	if template.GetName() != "updated template" {
+		t.Errorf("expected %s, got %s", "updated template", template.GetName())
+	}
+}
+
+
+
 func TestTicket_AddMethods(t *testing.T) {
 	ticket := &Ticket{
 		Operator:     []string{"admin1"},

@@ -1,7 +1,7 @@
-[![GoDoc](https://pkg.go.dev/badge/github.com/FatWang1/punched-tape?utm_source=godoc)](https://pkg.go.dev/github.com/FatWang1/punched-tape)
-[![Go Report Card](https://goreportcard.com/badge/github.com/fatwang1/punched-tape)](https://goreportcard.com/report/github.com/fatwang1/punched-tape)
-[![codecov](https://codecov.io/github/FatWang1/punched-tape/branch/master/graph/badge.svg)](https://codecov.io/github/FatWang1/punched-tape)
-![GitHub License](https://img.shields.io/github/license/fatwang1/punched-tape)
+[![GoDoc](https://pkg.go.dev/badge/github.com/victorwong171/punched-tape?utm_source=godoc)](https://pkg.go.dev/github.com/victorwong171/punched-tape)
+[![Go Report Card](https://goreportcard.com/badge/github.com/victorwong171/punched-tape)](https://goreportcard.com/report/github.com/victorwong171/punched-tape)
+[![codecov](https://codecov.io/github/victorwong171/punched-tape/branch/master/graph/badge.svg)](https://codecov.io/github/victorwong171/punched-tape)
+![GitHub License](https://img.shields.io/github/license/victorwong171/punched-tape)
 
 
 # punched-tape
@@ -39,8 +39,8 @@ go mod tidy
 package main
 
 import (
-    "github.com/FatWang1/punched-tape/models"
-    "github.com/FatWang1/punched-tape/punched_tape"
+    "github.com/victorwong171/punched-tape/models"
+    "github.com/victorwong171/punched-tape/punched_tape"
 )
 
 func main() {
@@ -68,9 +68,9 @@ func main() {
 package main
 
 import (
-    "github.com/FatWang1/punched-tape/models"
-    "github.com/FatWang1/punched-tape/ticket/template"
-    "github.com/FatWang1/fatwang-go-utils/desc/set"
+    "github.com/victorwong171/punched-tape/models"
+    "github.com/victorwong171/punched-tape/ticket/template"
+    "github.com/victorwong171/go-utils/desc/set"
 )
 
 func main() {

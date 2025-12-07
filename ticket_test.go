@@ -3,7 +3,7 @@ package punched_tape
 import (
 	"testing"
 
-	"github.com/FatWang1/punched-tape/models"
+	"github.com/victorwong171/punched-tape/models"
 )
 
 func TestNewTicketBuilder(t *testing.T) {
@@ -487,5 +487,43 @@ func TestTicketBuilder_DefaultValues(t *testing.T) {
 	}
 	if builder.option.Memo != "" {
 		t.Errorf("Default Memo = %v, want empty string", builder.option.Memo)
+	}
+}
+
+func TestTicketBuilder_SetName(t *testing.T) {
+	builder := NewTicketBuilder("user123", "TICKET-001", "approval", "test")
+
+	tests := []struct {
+		name     string
+		newName  string
+		expected string
+	}{
+		{
+			name:     "set name",
+			newName:  "new ticket name",
+			expected: "new ticket name",
+		},
+		{
+			name:     "set empty name",
+			newName:  "",
+			expected: "",
+		},
+		{
+			name:     "set long name",
+			newName:  "this is a very long ticket name with lots of text",
+			expected: "this is a very long ticket name with lots of text",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := builder.SetName(tt.newName)
+			if result != builder {
+				t.Errorf("SetName() should return builder instance")
+			}
+			if builder.option.Name != tt.expected {
+				t.Errorf("SetName() = %v, want %v", builder.option.Name, tt.expected)
+			}
+		})
 	}
 }
