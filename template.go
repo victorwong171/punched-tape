@@ -1,8 +1,8 @@
 package punched_tape
 
 import (
-	"github.com/FatWang1/punched-tape/models"
-	"github.com/FatWang1/punched-tape/ticket/template"
+	"github.com/victorwong171/punched-tape/models"
+	"github.com/victorwong171/punched-tape/ticket/template"
 )
 
 type TemplateBuilder struct {

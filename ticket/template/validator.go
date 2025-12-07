@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/FatWang1/fatwang-go-utils/desc/set"
-	"github.com/FatWang1/punched-tape/models"
+	"github.com/victorwong171/go-utils/desc/set"
+	"github.com/victorwong171/punched-tape/models"
 )
 
 // Validator is the interface that wraps the Validate method.

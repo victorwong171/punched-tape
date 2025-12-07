@@ -3,7 +3,7 @@ package punched_tape
 import (
 	"testing"
 
-	"github.com/FatWang1/punched-tape/models"
+	"github.com/victorwong171/punched-tape/models"
 )
 
 func TestNewTemplateBuilder(t *testing.T) {

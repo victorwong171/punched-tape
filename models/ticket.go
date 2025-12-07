@@ -1,18 +1,6 @@
 package models
 
-import "github.com/FatWang1/fatwang-go-utils/utils"
-
-const (
-	JointlySign = "jointly_sign"
-	SerialSign  = "serial_sign"
-	AnyoneSign  = "anyone_sign"
-
-	Running  = "running"
-	Passed   = "passed"
-	Rejected = "rejected"
-
-	Reject = "reject"
-)
+import "github.com/victorwong171/go-utils/utils"
 
 type Ticket struct {
 	OrderNum     string   `json:"order_num"`     // 工单号

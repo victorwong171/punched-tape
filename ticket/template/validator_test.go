@@ -1,11 +1,12 @@
 package template
 
 import (
-	"github.com/FatWang1/punched-tape/models"
 	"reflect"
 	"testing"
 
-	"github.com/FatWang1/fatwang-go-utils/desc/set"
+	"github.com/victorwong171/punched-tape/models"
+
+	"github.com/victorwong171/go-utils/desc/set"
 )
 
 func Test_canValidateReachability(t *testing.T) {

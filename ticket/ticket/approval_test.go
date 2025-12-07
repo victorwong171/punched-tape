@@ -1,9 +1,10 @@
 package ticket
 
 import (
-	"github.com/FatWang1/punched-tape/models"
-	"github.com/google/go-cmp/cmp"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
+	"github.com/victorwong171/punched-tape/models"
 )
 
 func TestHelper_Approval(t *testing.T) {

@@ -3,7 +3,7 @@ package punched_tape
 import (
 	"fmt"
 
-	"github.com/FatWang1/punched-tape/models"
+	"github.com/victorwong171/punched-tape/models"
 	"gopkg.in/errgo.v2/errors"
 )
 
