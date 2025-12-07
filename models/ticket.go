@@ -2,18 +2,6 @@ package models
 
 import "github.com/FatWang1/fatwang-go-utils/utils"
 
-const (
-	JointlySign = "jointly_sign"
-	SerialSign  = "serial_sign"
-	AnyoneSign  = "anyone_sign"
-
-	Running  = "running"
-	Passed   = "passed"
-	Rejected = "rejected"
-
-	Reject = "reject"
-)
-
 type Ticket struct {
 	OrderNum     string   `json:"order_num"`     // 工单号
 	Name         string   `json:"name"`          // 工单名称
